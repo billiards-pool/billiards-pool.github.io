@@ -15,7 +15,8 @@
     photo_url: photo_url,
     win: 0,
     loss: 0,
-    mmr: 0
+    mmr: 0,
+    win_streak: 0
   };
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
         import { getDatabase, ref, push, set, orderByChild, equalTo, get, runTransaction, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
