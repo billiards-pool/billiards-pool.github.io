@@ -299,7 +299,11 @@ startButton.addEventListener('click', () => {
                         }
                       const queryString2 = `&id_2=${encodeURIComponent(id)}&username_2=${encodeURIComponent(usernameToShow2)}&photo_url_2=${encodeURIComponent(photo_url ? photo_url : 'avatar-profil.jfif')}`;
                     
+                    if (selectedMode == '1v1') {
                       window.location.href = `main.html?mode=${encodeURIComponent(selectedMode)}${queryString1}${queryString2}`;
+                  } else if (selectedMode == '1v1(MMR)') {
+                    window.location.href = `mainmmr.html?mode=${encodeURIComponent(selectedMode)}${queryString1}${queryString2}`;
+                  }
               } 
           });
             } 
