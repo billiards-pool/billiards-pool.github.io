@@ -78,7 +78,7 @@ get(usersRef).then((snapshot) => {
         const usersData = snapshot.val();
         const sortedUsers = Object.values(usersData).sort((a, b) => b.win - a.win);
         let isEvenRow = false;
-        let leaderboardTable = '<table><tr><th style="width: 30%;">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 15%;">W</th><th class="loss" style="width: 15%;">L</th><th style="width: 15%;">O</th><th style="width: 15%;">MMR</th></tr>';
+        let leaderboardTable = '<table><tr><th style="width: 30%;" id="name">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 15%;" id="w">W</th><th class="loss" style="width: 15%;" id="l">L</th><th style="width: 15%;" id="o">O</th><th style="width: 15%;" id="mmr">MMR</th></tr>';
 
 sortedUsers.forEach((user) => {
     const rowClass = isEvenRow ? 'even' : 'odd';
@@ -114,6 +114,39 @@ sortedUsers.forEach((user) => {
 }).catch((error) => {
     console.error("Помилка при отриманні даних з бази даних:", error);
 });
+const colors = [
+  "red", "blue", "green", "yellow", "pink", "orange", "purple",
+  "brown", "gray", "cyan", "lime", "magenta", "teal", "indigo",
+  "violet", "maroon", "navy", "olive", "coral", "gold",
+  "salmon", "aquamarine", "chocolate", "darkgreen", "lavender",
+  "midnightblue", "peru", "royalblue", "sienna", "tomato"
+];
+
+let availableColors = [...colors]; // Створюємо копію списку кольорів
+
+function getRandomColor() {
+  if (availableColors.length === 0) {
+    availableColors = [...colors]; // Якщо всі кольори вже використані, перезапускаємо список
+  }
+  
+  const randomIndex = Math.floor(Math.random() * availableColors.length);
+  const selectedColor = availableColors.splice(randomIndex, 1)[0]; // Видаляємо вибраний кольор зі списку
+  return selectedColor;
+}
+
+const nameColor = getRandomColor();
+const wColor = getRandomColor();
+const lColor = getRandomColor();
+const oColor = getRandomColor();
+const mmrColor = getRandomColor();
+
+
+name.style.textShadow = `0 0 20px ${nameColor}`;
+w.style.textShadow = `0 0 20px ${wColor}`;
+
+document.getElementById("l").style.textShadow = `0 0 20px ${lColor}`;
+document.getElementById("mmr").style.textShadow = `0 0 20px ${mmrColor}`;
+
 </script>
 </body>
 </html>
