@@ -27,17 +27,17 @@
         text-align: center;
         line-height: 100px;
         color: #e0e0e0;
-        text-shadow: 0 0 20px lightgray;
+/*         text-shadow: 0 0 20px lightgray; */
         font-size: 56px;
         width: 100%;
         justify-content: center;
         align-items: center;
     }
     .win {
-        text-shadow: 0 0 20px blue;
+/*         text-shadow: 0 0 20px blue; */
     }
     .loss {
-        text-shadow: 0 0 20px red;
+/*         text-shadow: 0 0 20px red; */
     }
     .username {
         font-size: 56px;
@@ -141,8 +141,8 @@ const oColor = getRandomColor();
 const mmrColor = getRandomColor();
 
 
-name.style.textShadow = `0 0 20px ${nameColor}`;
-w.style.textShadow = `0 0 20px ${wColor}`;
+document.getElementById("name").style.textShadow = `0 0 20px ${nameColor}`;
+document.getElementById("w").style.textShadow = `0 0 20px ${wColor}`;
 
 document.getElementById("l").style.textShadow = `0 0 20px ${lColor}`;
 document.getElementById("mmr").style.textShadow = `0 0 20px ${mmrColor}`;
