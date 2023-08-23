@@ -182,8 +182,15 @@ const playerLossRef = ref(db, "users/" + id_2 + "/loss");
             const id = player2Data.id;
             const username = player2Data.username;
             const photo_url = player2Data.photo_url;
-            document.getElementById("username").textContent = username;
-            document.getElementById("photo").src = photo_url;
+            let usernameToShow = player2Data.username;
+        if (player2Data.username == null && player2Data.last_name == null) {
+            usernameToShow = `${player2Data.first_name}`;
+        } else if (player2Data.username == null) {
+            usernameToShow = `${player2Data.first_name} ${player2Data.last_name}`;
+        }
+            
+            document.getElementById("username").textContent = usernameToShow;
+            document.getElementById("photo").src = photo_url ? photo_url : 'avatar-profil.jfif';
         }
     });
                 // Отримати останній інкремент
