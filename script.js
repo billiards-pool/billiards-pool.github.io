@@ -69,7 +69,7 @@ const firebaseConfig = {
         let usernameToShow = userData.username;
         if (userData.username == null && userData.last_name == null) {
             usernameToShow = `${userData.first_name}`;
-        } else if (username == null) {
+        } else if (userData.username == null) {
             usernameToShow = `${userData.first_name} ${userData.last_name}`;
         }
         document.getElementById('usernameSpan').textContent = usernameToShow; // Вставка нікнейму користувача
