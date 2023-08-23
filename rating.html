@@ -39,6 +39,9 @@
     .loss {
         text-shadow: 0 0 20px purple;
     }
+    .mmr {
+        text-shadow: 0 0 20px gold;
+    }
     .username {
         font-size: 56px;
     }
@@ -78,7 +81,7 @@ get(usersRef).then((snapshot) => {
         const usersData = snapshot.val();
         const sortedUsers = Object.values(usersData).sort((a, b) => b.win - a.win);
         let isEvenRow = false;
-        let leaderboardTable = '<table><tr><th style="width: 30%;">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 15%;">W</th><th class="loss" style="width: 15%;">L</th><th style="width: 15%;">O</th><th style="width: 15%;">MMR</th></tr>';
+        let leaderboardTable = '<table><tr><th style="width: 30%;">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 15%;">W</th><th class="loss" style="width: 15%;">L</th><th style="width: 15%;">O</th><th style="width: 15%;" class="mmr">MMR</th></tr>';
 
 sortedUsers.forEach((user) => {
     const rowClass = isEvenRow ? 'even' : 'odd';
@@ -98,7 +101,7 @@ sortedUsers.forEach((user) => {
             <td class="win">${user.win}</td>
             <td class="loss">${user.loss}</td>
             <td>${user.win + user.loss}</td>
-            <td>${user.mmr}</td>
+            <td class="mmr">${user.mmr}</td>
         </tr>`;
         
         isEvenRow = !isEvenRow; // Toggle the current row status (even/odd)
