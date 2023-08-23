@@ -134,8 +134,15 @@ if (n1 > n2) {
             const id = player1Data.id;
             const username = player1Data.username;
             const photo_url = player1Data.photo_url;
-            document.getElementById("username").textContent = username;
-            document.getElementById("photo").src = photo_url;
+            let usernameToShow = player1Data.username;
+        if (player1Data.username == null && player1Data.last_name == null) {
+            usernameToShow = `${player1Data.first_name}`;
+        } else if (player1Data.username == null) {
+            usernameToShow = `${player1Data.first_name} ${player1Data.last_name}`;
+        }
+            
+            document.getElementById("username").textContent = usernameToShow;
+            document.getElementById("photo").src = photo_url ? photo_url : 'avatar-profil.jfif';
         }
     });
             // Отримати останній інкремент
