@@ -83,7 +83,7 @@ get(usersRef).then((snapshot) => {
 sortedUsers.forEach((user) => {
     const rowClass = isEvenRow ? 'even' : 'odd';
 
-    if (user.username !== undefined && user.first_name !== undefined && user.last_name !== undefined) {
+    if (user.username !== undefined || user.first_name !== undefined || user.last_name !== undefined) {
         let usernameToShow = user.username;
         
         if (user.username == null && user.last_name == null) {
