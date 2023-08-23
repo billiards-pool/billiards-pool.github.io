@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+    body {
+        background: linear-gradient(to bottom, #333333, #444444);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        height: 100vh;
+        font-family: 'Quicksand', sans-serif;
+        width: 100%;
+    }
+    #leaderboard {
+        width: 100%;
+    }
+    img {
+        width: 75px;
+        height: 75px;
+        margin-top: 20px;
+    }
+    table {
+        text-align: center;
+        line-height: 100px;
+        color: #e0e0e0;
+        text-shadow: 0 0 20px lightgray;
+        font-size: 56px;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .win {
+        text-shadow: 0 0 20px blue;
+    }
+    .loss {
+        text-shadow: 0 0 20px red;
+    }
+    .username {
+        font-size: 56px;
+    }
+    /* Стилі для парних рядків */
+    .even {
+        background-color: #333;
+    }
+    /* Стилі для непарних рядків */
+    .odd {
+        background-color: #444;
+    }
+</style>
+<title>POOL</title>
+</head>
+<body>
+<div id="leaderboard"></div>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCQ5RFHm92fs4J-QBD-TRJ_pM7cvk1rbz8",
+  authDomain: "poolgugu-2a0b6.firebaseapp.com",
+  databaseURL: "https://poolgugu-2a0b6-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "poolgugu-2a0b6",
+  storageBucket: "poolgugu-2a0b6.appspot.com",
+  messagingSenderId: "58411196312",
+  appId: "1:58411196312:web:84d707fb2dc3bd7efed5ed"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+
+const usersRef = ref(db, "users");
+get(usersRef).then((snapshot) => {
+    if (snapshot.exists()) {
+        const usersData = snapshot.val();
+        const sortedUsers = Object.values(usersData).sort((a, b) => b.win - a.win);
+        let isEvenRow = false;
+        let leaderboardTable = '<table><tr><th style="width: 30%;">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 20%;">W</th><th class="loss" style="width: 20%;">L</th><th style="width: 20%;">O</th></tr>';
+
+sortedUsers.forEach((user) => {
+    const rowClass = isEvenRow ? 'even' : 'odd';
+    let usernameToShow = user.username;
+    
+    if (user.username == null && user.last_name == null) {
+        usernameToShow = `${user.first_name}`;
+    } else if (user.username == null) {
+        usernameToShow = `${user.first_name} ${user.last_name}`;
+    }
+
+    leaderboardTable += `<tr class="${rowClass}">
+        <td class="username">${usernameToShow}</td>
+        <td><img src="${user.photo_url ? user.photo_url : 'avatar-profil.jfif'}" alt=""></td>
+        <td class="win">${user.win}</td>
+        <td class="loss">${user.loss}</td>
+        <td>${user.win + user.loss}</td>
+    </tr>`;
+
+    isEvenRow = !isEvenRow; // Toggle the current row status (even/odd)
+});
+
+        leaderboardTable += '</table>';
+        const leaderboardDiv = document.getElementById("leaderboard");
+        leaderboardDiv.innerHTML = leaderboardTable;
+    }
+}).catch((error) => {
+    console.error("Помилка при отриманні даних з бази даних:", error);
+});
+</script>
+</body>
+</html>
