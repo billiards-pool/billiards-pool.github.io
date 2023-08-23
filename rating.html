@@ -81,25 +81,28 @@ get(usersRef).then((snapshot) => {
         let leaderboardTable = '<table><tr><th style="width: 30%;">NAME</th><th style="width: 10%;"></th><th class="win" style="width: 20%;">W</th><th class="loss" style="width: 20%;">L</th><th style="width: 20%;">O</th></tr>';
 
 sortedUsers.forEach((user) => {
-    const rowClass = isEvenRow ? 'even' : 'odd';
-    let usernameToShow = user.username;
-    
-    if (user.username == null && user.last_name == null) {
-        usernameToShow = `${user.first_name}`;
-    } else if (user.username == null) {
-        usernameToShow = `${user.first_name} ${user.last_name}`;
+    if (user.username !== undefined) { // Перевірка на undefined
+        const rowClass = isEvenRow ? 'even' : 'odd';
+        let usernameToShow = user.username;
+        
+        if (user.username == null && user.last_name == null) {
+            usernameToShow = `${user.first_name}`;
+        } else if (user.username == null) {
+            usernameToShow = `${user.first_name} ${user.last_name}`;
+        }
+
+        leaderboardTable += `<tr class="${rowClass}">
+            <td class="username">${usernameToShow}</td>
+            <td><img src="${user.photo_url ? user.photo_url : 'avatar-profil.jfif'}" alt=""></td>
+            <td class="win">${user.win}</td>
+            <td class="loss">${user.loss}</td>
+            <td>${user.win + user.loss}</td>
+        </tr>`;
+
+        isEvenRow = !isEvenRow; // Toggle the current row status (even/odd)
     }
-
-    leaderboardTable += `<tr class="${rowClass}">
-        <td class="username">${usernameToShow}</td>
-        <td><img src="${user.photo_url ? user.photo_url : 'avatar-profil.jfif'}" alt=""></td>
-        <td class="win">${user.win}</td>
-        <td class="loss">${user.loss}</td>
-        <td>${user.win + user.loss}</td>
-    </tr>`;
-
-    isEvenRow = !isEvenRow; // Toggle the current row status (even/odd)
 });
+
 
         leaderboardTable += '</table>';
         const leaderboardDiv = document.getElementById("leaderboard");
