@@ -40,7 +40,7 @@ const firebaseConfig = {
   
   // Отримання даних користувача з бази даних
   onValue(usersRef, (snapshot) => {
-    userData = snapshot.val();
+    const userData = snapshot.val();
     if (userData) {
       displayUserData(userData);
     } else {
