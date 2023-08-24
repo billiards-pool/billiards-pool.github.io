@@ -19,7 +19,7 @@
     win_streak: 0
   };
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, ref, push, set, orderByChild, equalTo, get, runTransaction, child } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+        import { getDatabase, ref, push, set, orderByChild, equalTo, get, runTransaction, child, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBcTxPbjijLfs6n3Dw9A1ZAWcRCHHv_yGQ",
@@ -35,6 +35,18 @@ const firebaseConfig = {
         const app = initializeApp(firebaseConfig);
 
         const db = getDatabase();
+  // Вибірка даних користувача з бази даних
+  const usersRef = ref(db, `users/${id}`);
+  
+  // Отримання даних користувача з бази даних
+  onValue(usersRef, (snapshot) => {
+    userData = snapshot.val();
+    if (userData) {
+      displayUserData(userData);
+    } else {
+      console.log("User not found");
+    }
+  });
 
   // Перевірка, чи користувач вже існує в базі даних за допомогою id
   function checkUserExists(id) {
