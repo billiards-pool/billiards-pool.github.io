@@ -71,7 +71,7 @@ const firebaseConfig = {
           // Отримання даних користувача з бази даних
             onValue(usersRef, (snapshot) => {
               const usersData = snapshot.val();
-        
+              
         let usernameToShow = usersData.username;
         if (usersData.username == null && usersData.last_name == null) {
             usernameToShow = `${usersData.first_name}`;
@@ -147,6 +147,7 @@ const blockmain2 = document.querySelector('.blockmain:nth-child(3)');
 let isPlayerInfoShown2 = false;
 
 function showPlayerInfo(id, username, photo_url, first_name, last_name) {
+            
   let usernameToShow = username;
     if (username == null && last_name == null) {
         usernameToShow = `${first_name}`;
