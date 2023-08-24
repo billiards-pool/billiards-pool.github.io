@@ -210,7 +210,7 @@ function showPlayerInfo2(id, username, photo_url, first_name, last_name) {
 }
 function showInitialView() {
     blockmain.innerHTML = `
-        <button id="changeStyleButton">Ігрок 1</button>
+        <button id="changeStyleButton">Гравець 1</button>
     `;
     isPlayerInfoShown = false;
 
@@ -231,7 +231,7 @@ function showInitialView() {
 
 function showInitialView2() {
     blockmain2.innerHTML = `
-        <button id="changeStyleButton2">Ігрок 2</button>
+        <button id="changeStyleButton2">Гравець 2</button>
     `;
     isPlayerInfoShown2 = false;
 
