@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+body {
+    background: linear-gradient(to bottom, #333333, #444444); /* Змінено кольори градієнта */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+     font-size: 32px;
+     color: #e0e0e0;
+     text-shadow: 0 0 20px lightgray;
+     align-items: center;
+
+justify-content: center;
+}
+button {
+    font-size: 36px; /* Збільшено розмір шрифту */
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 10px; /* Збільшено радіус закругленості */
+    padding: 14px 24px; /* Збільшено внутрішні відступи */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+}
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-modal label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.edit-modal input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-modal button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+</style>
+<title>POOL</title>
+</head>
+<body>
+
+<div id="user-container"></div>
+
+<script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+       import { getDatabase, ref, push, set, orderByChild, equalTo, get, runTransaction, child, onValue, update  } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBcTxPbjijLfs6n3Dw9A1ZAWcRCHHv_yGQ",
+  authDomain: "billiards-pool-8184f.firebaseapp.com",
+  databaseURL: "https://billiards-pool-8184f-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "billiards-pool-8184f",
+  storageBucket: "billiards-pool-8184f.appspot.com",
+  messagingSenderId: "144934324163",
+  appId: "1:144934324163:web:ba9b9a43e2b926e6851f76"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+
+const urlParams = new URLSearchParams(window.location.search);
+
+const id = urlParams.get("id");
+
+    
+  // Вибірка даних користувача з бази даних
+  const userRef = ref(db, `users/${id}`);
+  
+  // Отримання даних користувача з бази даних
+  onValue(userRef, (snapshot) => {
+    const userData = snapshot.val();
+    if (userData) {
+      displayUserData(userData);
+    } else {
+      console.log("User not found");
+    }
+  });
+
+  // Функція для виведення даних користувача на екран
+  function displayUserData(userData) {
+    const userContainer = document.getElementById("user-container");
+
+    const userDiv = document.createElement("div");
+    userDiv.classList.add("user-card");
+
+    const photoImg = document.createElement("img");
+    photoImg.src = userData.photo_url;
+    photoImg.alt = `${userData.first_name} ${userData.last_name}'s Photo`;
+    userDiv.appendChild(photoImg);
+
+    const nameHeading = document.createElement("h2");
+    nameHeading.textContent = `${userData.first_name} ${userData.last_name}`;
+    userDiv.appendChild(nameHeading);
+
+    const usernamePara = document.createElement("p");
+    usernamePara.textContent = `Username: ${userData.username}`;
+    userDiv.appendChild(usernamePara);
+
+    const editButton = document.createElement("button");
+    editButton.textContent = "Редагувати";
+    editButton.addEventListener("click", () => openEditModal(userData));
+    userDiv.appendChild(editButton);
+
+    userContainer.appendChild(userDiv);
+  }
+
+  function openEditModal(userData) {
+    const editModal = document.createElement("div");
+    editModal.classList.add("edit-modal");
+
+    const nameLabel = document.createElement("label");
+    nameLabel.textContent = "Ім'я:";
+    const nameInput = document.createElement("input");
+    nameInput.value = userData.first_name;
+    editModal.appendChild(nameLabel);
+    editModal.appendChild(nameInput);
+
+    const lastNameLabel = document.createElement("label");
+    lastNameLabel.textContent = "Прізвище:";
+    const lastNameInput = document.createElement("input");
+    lastNameInput.value = userData.last_name;
+    editModal.appendChild(lastNameLabel);
+    editModal.appendChild(lastNameInput);
+
+    const usernameLabel = document.createElement("label");
+    usernameLabel.textContent = "Ім'я користувача:";
+    const usernameInput = document.createElement("input");
+    usernameInput.value = userData.username;
+    editModal.appendChild(usernameLabel);
+    editModal.appendChild(usernameInput);
+
+    const photoUrlLabel = document.createElement("label");
+    photoUrlLabel.textContent = "URL фото:";
+    const photoUrlInput = document.createElement("input");
+    photoUrlInput.value = userData.photo_url;
+    editModal.appendChild(photoUrlLabel);
+    editModal.appendChild(photoUrlInput);
+
+    const saveButton = document.createElement("button");
+    saveButton.textContent = "Зберегти";
+    saveButton.addEventListener("click", () => saveChanges(userData.id, nameInput.value, lastNameInput.value, usernameInput.value, photoUrlInput.value));
+    editModal.appendChild(saveButton);
+
+    document.body.appendChild(editModal);
+  }
+
+  function saveChanges(userId, newName, newLastName, newUsername, newPhotoUrl) {
+    const userRef = ref(db, `users/${userId}`);
+    update(userRef, {
+      first_name: newName,
+      last_name: newLastName,
+      username: newUsername,
+      photo_url: newPhotoUrl
+    }).then(() => {
+      location.reload(); // Оновити сторінку після оновлення даних
+    }).catch((error) => {
+      console.error("Error updating user data:", error);
+    });
+  }
+  </script>
+</body>
+</html>
