@@ -146,14 +146,8 @@ let isPlayerInfoShown = false;
 const blockmain2 = document.querySelector('.blockmain:nth-child(3)');
 let isPlayerInfoShown2 = false;
 
-function showPlayerInfo(id) {
-onValue(usersRef, (snapshot) => {
-const usersData = snapshot.val();
-const username = usersData.username;
-const photo_url = usersData.photo_url;
-const first_name = usersData.first_name;
-const last_name = usersData.last_name;
-
+function showPlayerInfo(id, username, photo_url, first_name, last_name) {
+            
   let usernameToShow = username;
     if (username == null && last_name == null) {
         usernameToShow = `${first_name}`;
@@ -182,18 +176,9 @@ const last_name = usersData.last_name;
         currentData.last_name = last_name;
         return currentData; 
     });
-});
 }
 
-function showPlayerInfo2(id) {
-onValue(usersRef, (snapshot) => {
-const usersData = snapshot.val();
-const username = usersData.username;
-const photo_url = usersData.photo_url;
-const first_name = usersData.first_name;
-const last_name = usersData.last_name;
-
-
+function showPlayerInfo2(id, username, photo_url, first_name, last_name) {
   let usernameToShow = username;
     if (username == null && last_name == null) {
         usernameToShow = `${first_name}`;
@@ -222,7 +207,6 @@ const last_name = usersData.last_name;
         currentData.last_name = last_name;
         return currentData; 
     });
-});
 }
 function showInitialView() {
     blockmain.innerHTML = `
