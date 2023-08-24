@@ -38,12 +38,6 @@ const firebaseConfig = {
   // Вибірка даних користувача з бази даних
   const usersRef = ref(db, `users/${id}`);
   
-  // Отримання даних користувача з бази даних
-  onValue(usersRef, (snapshot) => {
-    const usersData = snapshot.val();
-    console.log(usersData);
-    console.log(userData);
-  });
 
   // Перевірка, чи користувач вже існує в базі даних за допомогою id
   function checkUserExists(id) {
@@ -74,16 +68,21 @@ const firebaseConfig = {
             console.error("Помилка при збереженні даних: ", error);
           });
       } else {
-        console.log("Користувач вже існує у базі даних.");
-        let usernameToShow = userData.username;
-        if (userData.username == null && userData.last_name == null) {
-            usernameToShow = `${userData.first_name}`;
+          // Отримання даних користувача з бази даних
+            onValue(usersRef, (snapshot) => {
+              const usersData = snapshot.val();
+              console.log(usersData);
+        
+        let usernameToShow = userіData.username;
+        if (usersData.username == null && usersData.last_name == null) {
+            usernameToShow = `${usersData.first_name}`;
         } else if (userData.username == null) {
-            usernameToShow = `${userData.first_name} ${userData.last_name}`;
+            usernameToShow = `${usersData.first_name} ${usersData.last_name}`;
         }
         document.getElementById('usernameSpan').textContent = usernameToShow; // Вставка нікнейму користувача
-        document.getElementById('myImage').src = userData.photo_url ? userData.photo_url : 'avatar-profil.jfif';
+        document.getElementById('myImage').src = usersData.photo_url ? usersData.photo_url : 'avatar-profil.jfif';
         document.getElementById('cabinet').href = `cabinet.html?id=${id}`;
+        });
       }
     });
     
