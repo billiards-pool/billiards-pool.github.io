@@ -71,7 +71,6 @@ const firebaseConfig = {
           // Отримання даних користувача з бази даних
             onValue(usersRef, (snapshot) => {
               const usersData = snapshot.val();
-              console.log(usersData);
         
         let usernameToShow = usersData.username;
         if (usersData.username == null && usersData.last_name == null) {
