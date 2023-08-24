@@ -39,8 +39,8 @@ const firebaseConfig = {
   const usersRef = ref(db, `users/${id}`);
   
   // Отримання даних користувача з бази даних
-  onValue(usersRef, (snapshot) => {
-    const userData = snapshot.val();
+  onValue(usersRef, (snapshot, userData) => {
+    userData = snapshot.val();
     console.log(userData);
   });
 console.log(userData);
