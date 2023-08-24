@@ -73,6 +73,7 @@ const firebaseConfig = {
         }
         document.getElementById('usernameSpan').textContent = usernameToShow; // Вставка нікнейму користувача
         document.getElementById('myImage').src = userData.photo_url ? userData.photo_url : 'avatar-profil.jfif';
+        document.getElementById('cabinet').href = 'cabinet.html/?id=${id}';
       }
     });
     
