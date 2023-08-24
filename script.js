@@ -71,8 +71,8 @@ const firebaseConfig = {
           // Отримання даних користувача з бази даних
             onValue(usersRef, (snapshot) => {
               const usersData = snapshot.val();
-              
-        let usernameToShow = usersData.username;
+             
+            let usernameToShow = usersData.username;
         if (usersData.username == null && usersData.last_name == null) {
             usernameToShow = `${usersData.first_name}`;
         } else if (userData.username == null) {
@@ -255,7 +255,11 @@ blockmain.addEventListener('click', (event) => {
         if (isPlayerInfoShown) {
             showInitialView();
         } else {
-            showPlayerInfo(userData.id, userData.username, userData.photo_url, userData.first_name, userData.last_name); 
+            onValue(usersRef, (snapshot) => {
+              const usersData = snapshot.val();
+             
+            showPlayerInfo(userData.id, usersData.username, usersData.photo_url, usersData.first_name, usersData.last_name); 
+            });
         }
     }
 });
@@ -265,7 +269,11 @@ blockmain2.addEventListener('click', (event) => {
         if (isPlayerInfoShown2) {
             showInitialView2();
         } else {
-            showPlayerInfo2(userData.id, userData.username, userData.photo_url, userData.first_name, userData.last_name);
+            onValue(usersRef, (snapshot) => {
+              const usersData = snapshot.val();
+             
+            showPlayerInfo2(userData.id, usersData.username, usersData.photo_url, usersData.first_name, usersData.last_name); 
+            });
         }
     }
 });
