@@ -41,7 +41,9 @@ const firebaseConfig = {
   // Отримання даних користувача з бази даних
   onValue(usersRef, (snapshot) => {
     const userData = snapshot.val();
+    console.log(userDate);
   });
+console.log(userDate);
 
   // Перевірка, чи користувач вже існує в базі даних за допомогою id
   function checkUserExists(id) {
