@@ -73,7 +73,7 @@ const firebaseConfig = {
               const usersData = snapshot.val();
               console.log(usersData);
         
-        let usernameToShow = userіData.username;
+        let usernameToShow = usersData.username;
         if (usersData.username == null && usersData.last_name == null) {
             usernameToShow = `${usersData.first_name}`;
         } else if (userData.username == null) {
