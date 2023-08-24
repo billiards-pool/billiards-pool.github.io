@@ -147,7 +147,13 @@ const blockmain2 = document.querySelector('.blockmain:nth-child(3)');
 let isPlayerInfoShown2 = false;
 
 function showPlayerInfo(id, username, photo_url, first_name, last_name) {
-            
+onValue(usersRef, (snapshot) => {
+const usersData = snapshot.val();
+username = usersData.username;
+photo_url = usersData.photo_url;
+first_name = usersData.first_name;
+last_name = usersData.last_name;
+
   let usernameToShow = username;
     if (username == null && last_name == null) {
         usernameToShow = `${first_name}`;
@@ -176,9 +182,17 @@ function showPlayerInfo(id, username, photo_url, first_name, last_name) {
         currentData.last_name = last_name;
         return currentData; 
     });
+});
 }
 
 function showPlayerInfo2(id, username, photo_url, first_name, last_name) {
+onValue(usersRef, (snapshot) => {
+const usersData = snapshot.val();
+username = usersData.username;
+photo_url = usersData.photo_url;
+first_name = usersData.first_name;
+last_name = usersData.last_name;
+
   let usernameToShow = username;
     if (username == null && last_name == null) {
         usernameToShow = `${first_name}`;
@@ -207,6 +221,7 @@ function showPlayerInfo2(id, username, photo_url, first_name, last_name) {
         currentData.last_name = last_name;
         return currentData; 
     });
+});
 }
 function showInitialView() {
     blockmain.innerHTML = `
