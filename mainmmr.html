@@ -473,17 +473,24 @@ function toggleFirePulseAnimation2() {
     photo2.classList.remove("fire-pulse-animation2"); // Видаляємо клас з анімацією
   }
 }
+function toggleFirePulseAnimation() {
+  if (n2 == 8 || n1 == 8) { 
+    photo1.classList.remove("fire-pulse-animation1");
+    photo2.classList.remove("fire-pulse-animation2"); // Видаляємо клас з анімацією
+  }
+}
 
 // Виклик функції для початкового налаштування анімації
 toggleFirePulseAnimation1();
 toggleFirePulseAnimation2();
+toggleFirePulseAnimation();
 
 // Перевіряємо значення number1 при кожному оновленні
 setInterval(() => {
   toggleFirePulseAnimation1();
   toggleFirePulseAnimation2();
+  toggleFirePulseAnimation();
 }, 1000); // Змініть інтервал на більший або менший, за потреби
-
 </script>
 <style>
 @keyframes firePulse1 {
