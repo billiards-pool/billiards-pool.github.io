@@ -202,7 +202,12 @@ async function fetchAndLogWinStreak() {
         });
         const player_mmr = ref(db, "users/" + id_1 + "/mmr");
         runTransaction(player_mmr, (currentData) => {
+            if (0 > currentData) {
+                currentData = 0;
+                return currentData + win;
+            } else {
             return currentData + win;
+            }
         });
         const playerloss_win_streak = ref(db, "users/" + id_2 + "/win_streak");
         runTransaction(playerloss_win_streak, (currentData) => {
@@ -210,7 +215,7 @@ async function fetchAndLogWinStreak() {
         });
         const playerloss_mmr = ref(db, "users/" + id_2 + "/mmr");
         runTransaction(playerloss_mmr, (currentData) => {
-            if (0 > currentData) {
+            if (0 >= currentData) {
                return currentData = 0;
             } else {
             return currentData + loss;
@@ -295,7 +300,12 @@ async function fetchAndLogWinStreak2() {
         });
         const player_mmr = ref(db, "users/" + id_2 + "/mmr");
         runTransaction(player_mmr, (currentData) => {
+            if (0 > currentData) {
+                currentData = 0;
+                return currentData + win;
+            } else {
             return currentData + win;
+            }
         });
         const playerloss_win_streak = ref(db, "users/" + id_1 + "/win_streak");
         runTransaction(playerloss_win_streak, (currentData) => {
@@ -303,7 +313,7 @@ async function fetchAndLogWinStreak2() {
         });
         const playerloss_mmr = ref(db, "users/" + id_1 + "/mmr");
         runTransaction(playerloss_mmr, (currentData) => {
-            if (0 > currentData) {
+            if (0 >= currentData) {
                return currentData = 0;
             } else {
             return currentData + loss;
