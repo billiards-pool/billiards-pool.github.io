@@ -281,7 +281,70 @@ number2.style.textShadow = `0 0 20px ${mmr2Color}`;
 document.getElementById("username_1").style.textShadow = `0 0 20px ${mmr1Color}`;
 document.getElementById("username_2").style.textShadow = `0 0 20px ${mmr2Color}`;
 
-    </script>
 
+document.documentElement.style.setProperty('--mmr1Color', mmr1Color);
+document.documentElement.style.setProperty('--mmr2Color', mmr2Color);
+
+const photo1 = document.getElementById("photo_1");
+const photo2 = document.getElementById("photo_2");
+
+function toggleFirePulseAnimation1() {
+  if (n1 == 7) { // Перевірка на значення number1
+    photo1.classList.add("fire-pulse-animation1"); // Додаємо клас з анімацією
+  } else {
+    photo1.classList.remove("fire-pulse-animation1"); // Видаляємо клас з анімацією
+  }
+}
+
+function toggleFirePulseAnimation2() {
+  if (n2 == 7) { // Перевірка на значення number1
+    photo2.classList.add("fire-pulse-animation2"); // Додаємо клас з анімацією
+  } else {
+    photo2.classList.remove("fire-pulse-animation2"); // Видаляємо клас з анімацією
+  }
+}
+
+// Виклик функції для початкового налаштування анімації
+toggleFirePulseAnimation1();
+toggleFirePulseAnimation2();
+
+// Перевіряємо значення number1 при кожному оновленні
+setInterval(() => {
+  toggleFirePulseAnimation1();
+  toggleFirePulseAnimation2();
+}, 1000); // Змініть інтервал на більший або менший, за потреби
+
+</script>
+<style>
+@keyframes firePulse1 {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--mmr1Color), 0 0 10px var(--mmr1Color), 0 0 20px var(--mmr1Color);
+  }
+  
+  50% {
+    box-shadow: 0 0 10px var(--mmr1Color), 0 0 50px var(--mmr1Color), 0 0 100px var(--mmr1Color);
+  }
+}
+
+.fire-pulse-animation1 {
+  animation: firePulse1 1.5s infinite;
+}
+
+@keyframes firePulse2 {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--mmr2Color), 0 0 10px var(--mmr2Color), 0 0 20px var(--mmr2Color);
+  }
+  
+  50% {
+    box-shadow: 0 0 10px var(--mmr2Color), 0 0 50px var(--mmr2Color), 0 0 100px var(--mmr2Color);
+  }
+}
+
+.fire-pulse-animation2 {
+  animation: firePulse2 1.5s infinite;
+}
+
+
+</style>
 </body>
 </html>
