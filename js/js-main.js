@@ -85,12 +85,23 @@ FinishButton.addEventListener('click', () => {
  window.location.href = `save.html?id_1=`+id_1+`&id_2=`+id_2+`&n1=`+n1+`&n2=`+n2+`&time=`+t.innerHTML;
 
 });
-    const colors = [
+const colors = [
   "red", "blue", "green", "yellow", "pink", "orange", "purple",
   "brown", "gray", "cyan", "lime", "magenta", "teal", "indigo",
   "violet", "maroon", "navy", "olive", "coral", "gold",
   "salmon", "aquamarine", "chocolate", "darkgreen", "lavender",
-  "midnightblue", "peru", "royalblue", "sienna", "tomato"
+  "midnightblue", "peru", "royalblue", "sienna", "tomato",
+  "aliceblue", "azure", "beige", "cadetblue", "chartreuse",
+  "crimson", "darkorchid", "firebrick", "forestgreen", "hotpink",
+  "khaki", "lawngreen", "lemonchiffon", "lightcoral", "lightpink",
+  "mediumseagreen", "orangered", "palegoldenrod", "palevioletred",
+  "plum", "rosybrown", "sandybrown", "seagreen", "silver", "thistle",
+  "wheat", "yellowgreen", "aqua", "bisque", "burlywood", "cornflowerblue", "darkcyan",
+  "darkslateblue", "dodgerblue", "goldenrod", "greenyellow",
+  "indianred", "limegreen", "mediumaquamarine", "mediumvioletred",
+  "mistyrose", "oldlace", "orangered", "papayawhip", "powderblue",
+  "rebeccapurple", "saddlebrown", "seashell", "slategray",
+  "springgreen", "tan", "turquoise", "violetred", "whitesmoke"
 ];
 
 let availableColors = [...colors]; // Створюємо копію списку кольорів
