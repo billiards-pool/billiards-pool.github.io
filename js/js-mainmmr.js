@@ -283,3 +283,13 @@ for (let i = 1; i <= 6; i++) {
   })(i);
 }
 }, 1000); // Змініть інтервал на більший або менший, за потреби
+
+const player1ColorRef = ref(db, "player1/color");
+    runTransaction(player1ColorRef, (currentData) => {
+        return currentData = mmr1Color; 
+    });
+
+const player2ColorRef = ref(db, "player2/color");
+    runTransaction(player2ColorRef, (currentData) => {
+        return currentData = mmr2Color; 
+    });
