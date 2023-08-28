@@ -1,0 +1,63 @@
+ @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+body {
+    background: linear-gradient(to bottom, #333333, #444444); /* Змінено кольори градієнта */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+     font-size: 32px;
+     color: #e0e0e0;
+     text-shadow: 0 0 20px lightgray;
+     align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+button {
+    font-size: 36px; /* Збільшено розмір шрифту */
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 10px; /* Збільшено радіус закругленості */
+    padding: 14px 24px; /* Збільшено внутрішні відступи */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+}
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.edit-modal label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.edit-modal input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.edit-modal button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
