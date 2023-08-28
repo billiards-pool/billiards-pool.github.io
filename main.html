@@ -309,6 +309,28 @@ function toggleFirePulseAnimation() {
     photo2.classList.remove("fire-pulse-animation2"); // Видаляємо клас з анімацією
   }
 }
+function toggleFirePulseAnimation1_1(n) {
+  const animationClass = `fire-pulse-animation1-${n}`;
+
+  if (n1 === n) { 
+    photo1.classList.add(animationClass); 
+  } else {
+    photo1.classList.remove(animationClass);
+  }
+}
+function toggleFirePulseAnimation1_2(n) {
+  const animationClass = `fire-pulse-animation2-${n}`;
+
+  if (n2 === n) { 
+    photo2.classList.add(animationClass); 
+  } else {
+    photo2.classList.remove(animationClass);
+  }
+}
+
+
+
+
 
 // Виклик функції для початкового налаштування анімації
 toggleFirePulseAnimation1();
@@ -320,17 +342,23 @@ setInterval(() => {
   toggleFirePulseAnimation1();
   toggleFirePulseAnimation2();
   toggleFirePulseAnimation();
+  for (let i = 1; i <= 6; i++) {
+  (function(n) {
+    toggleFirePulseAnimation1_1(n);
+    toggleFirePulseAnimation1_2(n);
+  })(i);
+}
+
 }, 1000); // Змініть інтервал на більший або менший, за потреби
 
 </script>
 <style>
 @keyframes firePulse1 {
   0%, 100% {
-    box-shadow: 0 0 5px var(--mmr1Color), 0 0 10px var(--mmr1Color), 0 0 20px var(--mmr1Color);
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr1Color), 0 0 20px var(--mmr1Color);
   }
-  
   50% {
-    box-shadow: 0 0 10px var(--mmr1Color), 0 0 50px var(--mmr1Color), 0 0 100px var(--mmr1Color);
+    box-shadow: 0 0 30px white, 0 0 50px var(--mmr1Color), 0 0 150px var(--mmr1Color);
   }
 }
 
@@ -340,17 +368,44 @@ setInterval(() => {
 
 @keyframes firePulse2 {
   0%, 100% {
-    box-shadow: 0 0 5px var(--mmr2Color), 0 0 10px var(--mmr2Color), 0 0 20px var(--mmr2Color);
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr2Color), 0 0 20px var(--mmr2Color);
   }
   
   50% {
-    box-shadow: 0 0 10px var(--mmr2Color), 0 0 50px var(--mmr2Color), 0 0 100px var(--mmr2Color);
+    box-shadow: 0 0 10px white, 0 0 50px var(--mmr2Color), 0 0 100px var(--mmr2Color);
   }
 }
 
 .fire-pulse-animation2 {
   animation: firePulse2 1.5s infinite;
 }
+
+@keyframes firePulse1-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-1 { animation: firePulse1-1 2s; }
+@keyframes firePulse1-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-2 { animation: firePulse1-2 2s; }
+@keyframes firePulse1-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-3 { animation: firePulse1-3 2s; }
+@keyframes firePulse1-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-4 { animation: firePulse1-4 2s; }
+@keyframes firePulse1-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-5 { animation: firePulse1-5 2s; }
+@keyframes firePulse1-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-6 { animation: firePulse1-6 2s; }
+
+
+@keyframes firePulse2-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-1 { animation: firePulse2-1 2s; }
+@keyframes firePulse2-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-2 { animation: firePulse2-2 2s; }
+@keyframes firePulse2-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-3 { animation: firePulse2-3 2s; }
+@keyframes firePulse2-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-4 { animation: firePulse2-4 2s; }
+@keyframes firePulse2-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-5 { animation: firePulse2-5 2s; }
+@keyframes firePulse2-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-6 { animation: firePulse2-6 2s; }
 
 
 </style>
