@@ -1,5 +1,5 @@
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+        import { getDatabase, ref, push, set, orderByChild, equalTo, get, runTransaction, child, onValue } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBcTxPbjijLfs6n3Dw9A1ZAWcRCHHv_yGQ",
@@ -195,3 +195,13 @@ setInterval(() => {
 }
 
 }, 1000); // Змініть інтервал на більший або менший, за потреби
+
+const player1ColorRef = ref(db, "player1/color");
+    runTransaction(player1ColorRef, (currentData) => {
+        return currentData = mmr1Color; 
+    });
+
+const player2ColorRef = ref(db, "player2/color");
+    runTransaction(player2ColorRef, (currentData) => {
+        return currentData = mmr2Color; 
+    });
