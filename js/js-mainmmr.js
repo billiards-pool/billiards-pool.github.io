@@ -180,7 +180,18 @@ const colors = [
   "brown", "gray", "cyan", "lime", "magenta", "teal", "indigo",
   "violet", "maroon", "navy", "olive", "coral", "gold",
   "salmon", "aquamarine", "chocolate", "darkgreen", "lavender",
-  "midnightblue", "peru", "royalblue", "sienna", "tomato"
+  "midnightblue", "peru", "royalblue", "sienna", "tomato",
+  "aliceblue", "azure", "beige", "cadetblue", "chartreuse",
+  "crimson", "darkorchid", "firebrick", "forestgreen", "hotpink",
+  "khaki", "lawngreen", "lemonchiffon", "lightcoral", "lightpink",
+  "mediumseagreen", "orangered", "palegoldenrod", "palevioletred",
+  "plum", "rosybrown", "sandybrown", "seagreen", "silver", "thistle",
+  "wheat", "yellowgreen", "aqua", "bisque", "burlywood", "cornflowerblue", "darkcyan",
+  "darkslateblue", "dodgerblue", "goldenrod", "greenyellow",
+  "indianred", "limegreen", "mediumaquamarine", "mediumvioletred",
+  "mistyrose", "oldlace", "orangered", "papayawhip", "powderblue",
+  "rebeccapurple", "saddlebrown", "seashell", "slategray",
+  "springgreen", "tan", "turquoise", "violetred", "whitesmoke"
 ];
 
 let availableColors = [...colors]; // Створюємо копію списку кольорів
