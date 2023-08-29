@@ -22,7 +22,7 @@ const n1 = parseInt(urlParams.get("n1"));
 const n2 = parseInt(urlParams.get("n2"));
 const time = urlParams.get("time");
 const score = n1 + ':' + n2;
-
+const mode = urlParams.get("mode");
 const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.getMonth() + 1;
@@ -69,7 +69,8 @@ if (n1 > n2) {
                         loss: id_2,
                         score: score,
                         time: time,
-                        datetime: datetime
+                        datetime: datetime,
+                        mode: mode
                     };
                     
                     set(newPlayRef, playData)
@@ -123,7 +124,8 @@ const playerLossRef = ref(db, "users/" + id_2 + "/loss");
                         loss: id_1,
                         score: score,
                         time: time,
-                        datetime: datetime
+                        datetime: datetime,
+                        mode: mode
                     };
                     
                     set(newPlayRef, playData)
