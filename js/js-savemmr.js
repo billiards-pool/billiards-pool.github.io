@@ -28,7 +28,7 @@ const mmr1 = parseInt(urlParams.get("mmr1"));
 const mmr2 = parseInt(urlParams.get("mmr2"));
 const time = urlParams.get("time");
 const score = n1 + ':' + n2;
-
+const mode = urlParams.get("mode");
 const currentDate = new Date();
 const year = currentDate.getFullYear();
 const month = currentDate.getMonth() + 1;
@@ -75,7 +75,8 @@ if (n1 > n2) {
                         loss: id_2,
                         score: score,
                         time: time,
-                        datetime: datetime
+                        datetime: datetime,
+                        mode: mode
                     };
                     
                     set(newPlayRef, playData)
@@ -173,7 +174,8 @@ fetchAndLogWinStreak();
                         loss: id_1,
                         score: score,
                         time: time,
-                        datetime: datetime
+                        datetime: datetime,
+                        mode: mode
                     };
                     
                     set(newPlayRef, playData)
