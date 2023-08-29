@@ -1,0 +1,81 @@
+   @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+body {
+    background: linear-gradient(to bottom, #333333, #444444); /* Змінено кольори градієнта */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+}
+button {
+    font-size: 36px; /* Збільшено розмір шрифту */
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 10px; /* Збільшено радіус закругленості */
+    padding: 14px 24px; /* Збільшено внутрішні відступи */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+}
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.block {
+        display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+        text-align: center;
+    line-height: 100px;
+    color: #e0e0e0;
+     text-shadow: 0 0 20px lightgray;
+     flex-direction: column;
+}
+.block:nth-child(1), .block:nth-child(4) {
+    width: 100vh;
+    height: 10%;
+}
+.block:nth-child(2) {
+    width: 100vh;
+    height: 40%;
+}
+.block:nth-child(3) {
+    width: 100vh;
+    height: 40%;
+     display: flex;
+     flex-direction: row;
+    align-items: flex-end;
+}
+.block:nth-child(1), .block:nth-child(3) {
+    background-color: #444;
+    font-size: 92px;
+}
+.block:nth-child(2) {
+    font-size: 152px;
+}
+@media screen and (min-width: 1280px) and (max-width: 1280px) and (min-height: 720px) and (max-height: 720px) {
+    img {
+        width: 220px; /* Змінено максимальну ширину фото */
+        height: 220px; /* Залишено максимальну висоту фото */
+    }
+}
+@media (max-width: 768px) {
+    #username {
+        font-size: 92px;
+    }
+    button {
+        font-size: 18px;
+    }
+}
