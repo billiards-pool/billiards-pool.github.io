@@ -101,7 +101,7 @@ body {
     height: 320px; /* Залишено максимальну висоту фото */
     -webkit-clip-path: polygon(0 0, 0 320px, 320px 0, 320px 0);
       position: absolute;
-    bottom: 300px; 
+    bottom: 400px; 
     transform: translateX(-50%); 
 }
 .photo_2 img, .photo_4 img {
@@ -109,7 +109,7 @@ body {
     height: 320px; /* Залишено максимальну висоту фото */
     -webkit-clip-path: polygon(320px 0, 0 320px, 320px 320px);
     position: absolute;
-    bottom: 300px; /* встановіть відстань від низу, яка вам підходить */
+    bottom: 400px; /* встановіть відстань від низу, яка вам підходить */
     transform: translateX(-50%); /* це центрує фото горизонтально */
 }
 #changeStyleButton1, #changeStyleButton3 {
@@ -127,7 +127,7 @@ body {
  }
  .nickname_2, .nickname_4 {
       position: absolute;
-    bottom: 125px; 
+    bottom: 200px; 
  }
 
 select {
