@@ -327,3 +327,16 @@ startButton.addEventListener('click', () => {
             } 
         });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const modeSelect = document.getElementById("modeSelect");
+
+    modeSelect.addEventListener("change", function () {
+        const selectedOption = modeSelect.options[modeSelect.selectedIndex].text;
+        if (selectedOption === "1v1") {
+            window.location.href = `index.html?id=${id}`;
+        } else if (selectedOption === "1v1(MMR)") {
+            window.location.href = `index-1v1mmr.html?id=${id}`;
+        }
+    });
+});
