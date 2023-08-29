@@ -137,7 +137,7 @@ get(playerRef)
 
 // Виклик функції при старті
 initializePlayer2Ref();
-setInterval(initializePlayer2Ref, 2000);
+    setInterval(initializePlayer2Ref, 2000);
 
   function initializePlayer3Ref() {
  const playerRef = ref(db, "player3");
@@ -164,7 +164,7 @@ get(playerRef)
 
 // Виклик функції при старті
 initializePlayer3Ref();
-     setInterval(initializePlayer3Ref, 2000);
+    setInterval(initializePlayer3Ref, 2000);
 
   function initializePlayer4Ref() {
  const playerRef = ref(db, "player4");
@@ -502,7 +502,43 @@ startButton.addEventListener('click', () => {
                         }
                       const queryString2 = `&id_2=${encodeURIComponent(id)}&username_2=${encodeURIComponent(usernameToShow2)}&photo_url_2=${encodeURIComponent(photo_url ? photo_url : 'avatar-profil.jfif')}`;
 
-                    window.location.href = `main2v2.html?mode=${encodeURIComponent(selectedMode)}${queryString1}${queryString2}`;
+                    const player3Ref = ref(db, "player3");
+                  get(player3Ref).then((snapshot) => {
+                    if (snapshot.exists()) {
+                      const player3Data = snapshot.val();
+                      const id = player3Data.id;
+                      const username = player3Data.username;
+                      const photo_url = player3Data.photo_url;
+                      let usernameToShow3 = username;
+                        if (player3Data.username == null && player3Data.last_name == null) {
+                            usernameToShow3 = `${player3Data.first_name}`;
+                        } else if (player3Data.username == null) {
+                            usernameToShow3 = `${player3Data.first_name} ${player3Data.last_name}`;
+                        }
+                      const queryString3 = `&id_3=${encodeURIComponent(id)}&username_3=${encodeURIComponent(usernameToShow3)}&photo_url_3=${encodeURIComponent(photo_url ? photo_url : 'avatar-profil.jfif')}`;
+
+                    const player4Ref = ref(db, "player4");
+                  get(player4Ref).then((snapshot) => {
+                    if (snapshot.exists()) {
+                      const player4Data = snapshot.val();
+                      const id = player4Data.id;
+                      const username = player4Data.username;
+                      const photo_url = player4Data.photo_url;
+                      let usernameToShow4 = username;
+                        if (player4Data.username == null && player4Data.last_name == null) {
+                            usernameToShow4 = `${player4Data.first_name}`;
+                        } else if (player4Data.username == null) {
+                            usernameToShow4 = `${player4Data.first_name} ${player4Data.last_name}`;
+                        }
+                      const queryString4 = `&id_4=${encodeURIComponent(id)}&username_4=${encodeURIComponent(usernameToShow4)}&photo_url_4=${encodeURIComponent(photo_url ? photo_url : 'avatar-profil.jfif')}`;
+
+                    window.location.href = `main2v2.html?mode=${encodeURIComponent(selectedMode)}${queryString1}${queryString2}${queryString3}${queryString4}`;
+                  
+              } 
+          });
+                  
+              } 
+          });
                   
               } 
           });
