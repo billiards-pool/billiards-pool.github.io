@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>billiards-pool</title>
+<link rel="stylesheet" type="text/css" href="css/css-index2v2.css">
+<script type="module" src="js/js-index2v2.js"></script>
+</head>
+<body>
+  <header>
+    <div class="block">
+      <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="billiards_pool_bot" data-size="large" data-auth-url="https://billiards-pool.github.io/" data-request-access="write"></script>
+    </div>
+    <div class="block">
+        <a href="cabinet.html" id="cabinet"><span id="usernameSpan">Ви не авторизувались</span></a>
+        <img id="myImage" src="" style="width: 50px; height: 50px;"/>
+    </div>
+    <div class="block">
+     <select id="modeSelect">
+        <option>2v2</option>
+          <option>1v1</option>
+          <option>1v1(MMR)</option>
+      </select>  
+    </div>
+    <div class="block">
+        <a href="rating.html" class="styled-link">Рейтинг</a>
+    </div>
+  </header>
+  <div class="main">
+    <div class="blockmain">
+        <div class="blockmain_users1">
+            <button id="changeStyleButton1">Гравець 1</button>
+        </div>
+        <div class="blockmain_users2">
+            <button id="changeStyleButton2">Гравець 2</button>
+        </div>
+    </div>
+    <div class="blockmain">
+        <div class="blockmain2 vs">VS</div>
+        <div class="blockmain2">
+            <button id="startButton">START</button>
+        </div>
+    </div>
+    <div class="blockmain">
+      <div class="blockmain_users3">
+            <button id="changeStyleButton3">Гравець 3</button>
+        </div>
+      <div class="blockmain_users4">
+            <button id="changeStyleButton4">Гравець 4</button>
+        </div>
+    </div>
+  </div>
+</body>
+</html>
