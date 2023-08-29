@@ -110,7 +110,7 @@ get(playerRef)
 
 // Виклик функції при старті
  initializePlayer1Ref();
-//     setInterval(initializePlayer1Ref, 2000);
+    setInterval(initializePlayer1Ref, 2000);
 
   function initializePlayer2Ref() {
  const playerRef = ref(db, "player2");
@@ -137,7 +137,7 @@ get(playerRef)
 
 // Виклик функції при старті
 initializePlayer2Ref();
-//     setInterval(initializePlayer2Ref, 2000);
+setInterval(initializePlayer2Ref, 2000);
 
   function initializePlayer3Ref() {
  const playerRef = ref(db, "player3");
@@ -164,7 +164,7 @@ get(playerRef)
 
 // Виклик функції при старті
 initializePlayer3Ref();
-//     setInterval(initializePlayer3Ref, 2000);
+     setInterval(initializePlayer3Ref, 2000);
 
   function initializePlayer4Ref() {
  const playerRef = ref(db, "player4");
@@ -191,7 +191,7 @@ get(playerRef)
 
 // Виклик функції при старті
 initializePlayer4Ref();
-//     setInterval(initializePlayer4Ref, 2000);
+     setInterval(initializePlayer4Ref, 2000);
 
 
 const blockmain_users1 = document.querySelector('.blockmain_users1');
