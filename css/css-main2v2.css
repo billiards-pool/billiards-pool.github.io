@@ -1,0 +1,210 @@
+   @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+body {
+    background: linear-gradient(to bottom, #333333, #444444); /* Змінено кольори градієнта */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+}
+button {
+    font-size: 36px; /* Збільшено розмір шрифту */
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 10px; /* Збільшено радіус закругленості */
+    padding: 14px 24px; /* Збільшено внутрішні відступи */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+}
+  .block {
+    border: 1px solid #555;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .block:nth-child(1),
+  .block:nth-child(3) {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .block:nth-child(1) .part, .block:nth-child(3) .part {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .block:nth-child(1) .part:last-child, .block:nth-child(3) .part:last-child {
+    height: 80%;
+        align-items: center; /* Вирівнювання фото в центрі вертикалі */
+    justify-content: center; /* Вирівнювання фото в центрі горизонталі */
+  }
+
+  .block:nth-child(2) {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .block:nth-child(2) .part {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .block:nth-child(2) .part:nth-child(2) {
+    height: 60%;
+    display: flex;
+    align-items: center;
+  }
+
+  .block:nth-child(2) .part:last-child {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+        display: flex;
+    flex-direction: column;
+  }
+
+.partn:nth-child(1),
+.partn:nth-child(3) {
+    flex: 45%;
+    height: 100%;
+}
+
+.partn:nth-child(2) {
+    flex: 10%;
+    height: 100%;
+}
+  .block:nth-child(2) .part {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .partn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+#username_1, #number1, #username_2, #number2, #time, #dvikrapku, #username_3, #username_4 {
+    width: 100%;
+    height: 20%;
+    text-align: center;
+    line-height: 100px;
+    color: #e0e0e0;
+}
+#username_1, #username_2, #number1 {
+    font-size: 56px; /* Новий розмір шрифту */
+    text-shadow: 0 0 20px blue; /* Це значення потрібно вираховувати вручну, щоб вирівняти текст по вертикалі */
+ }
+ #username_3, #username_4, #number2 {
+    font-size: 56px; /* Новий розмір шрифту */
+    text-shadow: 0 0 20px red; /* Це значення потрібно вираховувати вручну, щоб вирівняти текст по вертикалі */
+ }
+ #time, #dvikrapku {
+    font-size: 92px; /* Новий розмір шрифту */
+    text-shadow: 0 0 20px lightgray; /* Це значення потрібно вираховувати вручну, щоб вирівняти текст по вертикалі */
+ }
+ #number1, #number2, #dvikrapku {
+    font-size: 250px;
+ }
+ #mode {
+    font-size: 24px;
+    text-shadow: 0 0 20px lightgray;
+     color: #e0e0e0;
+ }
+
+ .photo_1 img, .photo_3 img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+    -webkit-clip-path: polygon(0 0, 0 320px, 320px 0, 320px 0);
+      position: absolute;
+    bottom: 400px; 
+}
+.photo_2 img, .photo_4 img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+    -webkit-clip-path: polygon(320px 0, 0 320px, 320px 320px);
+    position: absolute;
+    bottom: 400px; /* встановіть відстань від низу, яка вам підходить */
+}
+#username_1, #username_3 {
+  margin-right: 100px;
+}
+#username_2, #username_4 {
+  margin-left: 100px;
+  margin-bottom: 150px;
+}
+ @keyframes firePulse1 {
+  0%, 100% {
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr1Color), 0 0 20px var(--mmr1Color);
+  }
+  50% {
+    box-shadow: 0 0 30px white, 0 0 50px var(--mmr1Color), 0 0 150px var(--mmr1Color);
+  }
+}
+
+.fire-pulse-animation1 {
+  animation: firePulse1 1.5s infinite;
+}
+
+@keyframes firePulse2 {
+  0%, 100% {
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr2Color), 0 0 20px var(--mmr2Color);
+  }
+  
+  50% {
+    box-shadow: 0 0 10px white, 0 0 50px var(--mmr2Color), 0 0 100px var(--mmr2Color);
+  }
+}
+
+.fire-pulse-animation2 {
+  animation: firePulse2 1.5s infinite;
+}
+
+@keyframes firePulse1-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-1 { animation: firePulse1-1 2s; }
+@keyframes firePulse1-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-2 { animation: firePulse1-2 2s; }
+@keyframes firePulse1-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-3 { animation: firePulse1-3 2s; }
+@keyframes firePulse1-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-4 { animation: firePulse1-4 2s; }
+@keyframes firePulse1-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-5 { animation: firePulse1-5 2s; }
+@keyframes firePulse1-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-6 { animation: firePulse1-6 2s; }
+
+
+@keyframes firePulse2-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-1 { animation: firePulse2-1 2s; }
+@keyframes firePulse2-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-2 { animation: firePulse2-2 2s; }
+@keyframes firePulse2-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-3 { animation: firePulse2-3 2s; }
+@keyframes firePulse2-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-4 { animation: firePulse2-4 2s; }
+@keyframes firePulse2-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-5 { animation: firePulse2-5 2s; }
+@keyframes firePulse2-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-6 { animation: firePulse2-6 2s; }
+
