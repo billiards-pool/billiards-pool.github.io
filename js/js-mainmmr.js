@@ -151,7 +151,7 @@ const FinishButton = document.querySelector('#FinishButton');
 
 FinishButton.addEventListener('click', () => {
 
- window.location.href = `savemmr.html?id_1=`+id_1+`&id_2=`+id_2+`&n1=`+n1+`&n2=`+n2+`&d1=`+d1+`&d2=`+d2+`&f1=`+f1+`&f2=`+f2+`&mmr1=`+mmr1.innerHTML+`&mmr2=`+mmr2.innerHTML+`&time=`+t.innerHTML;
+ window.location.href = `savemmr.html?id_1=`+id_1+`&id_2=`+id_2+`&n1=`+n1+`&n2=`+n2+`&d1=`+d1+`&d2=`+d2+`&f1=`+f1+`&f2=`+f2+`&mmr1=`+mmr1.innerHTML+`&mmr2=`+mmr2.innerHTML+`&mode=`+ mode +`&time=`+t.innerHTML;
 
 });
 
