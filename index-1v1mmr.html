@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>billiards-pool</title>
+<link rel="stylesheet" type="text/css" href="style.css">
+    <script type="module" src="script.js"></script>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modeSelect = document.getElementById("modeSelect");
+
+    modeSelect.addEventListener("change", function () {
+        const selectedOption = modeSelect.options[modeSelect.selectedIndex].text;
+        if (selectedOption === "1v1") {
+            window.location.href = "index.html";
+        } else if (selectedOption === "1v1(MMR)") {
+            window.location.href = `index-1v1mmr.html?id=${id}`;
+        }
+    });
+});
+
+    </script>
+</head>
+<body>
+  <header>
+    <div class="block">
+      <script async src="https://telegram.org/js/telegram-widget.js?22" data-telegram-login="billiards_pool_bot" data-size="large" data-auth-url="https://billiards-pool.github.io/" data-request-access="write"></script>
+    </div>
+    <div class="block">
+        <a href="cabinet.html" id="cabinet"><span id="usernameSpan">Ви не авторизувались</span></a>
+        <img id="myImage" src="" style="width: 50px; height: 50px;"/>
+    </div>
+    <div class="block">
+     <select id="modeSelect">
+        <option>1v1(MMR)</option>
+        <option>1v1</option> 
+      </select>  
+    </div>
+    <div class="block">
+        <a href="rating.html" class="styled-link">Рейтинг</a>
+    </div>
+  </header>
+  <div class="main">
+    <div class="blockmain">
+        <button id="changeStyleButton">Гравець 1</button>
+    </div>
+    <div class="blockmain">
+        <div class="blockmain2">VS</div>
+        <div class="blockmain2">
+            <button id="startButton">START</button>
+        </div>
+    </div>
+    <div class="blockmain">
+      <button id="changeStyleButton2">Гравець 2</button>
+    </div>
+  </div>
+</body>
+</html>
