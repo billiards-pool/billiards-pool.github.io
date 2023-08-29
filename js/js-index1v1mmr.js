@@ -365,6 +365,8 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = `index.html?id=${id}`;
         } else if (selectedOption === "1v1(MMR)") {
             window.location.href = `index-1v1mmr.html?id=${id}`;
+        } else if (selectedOption === "2v2") {
+            window.location.href = `index-2v2.html?id=${id}`;
         }
     });
 });
