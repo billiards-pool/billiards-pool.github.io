@@ -82,7 +82,7 @@ const FinishButton = document.querySelector('#FinishButton');
 
 FinishButton.addEventListener('click', () => {
 
- window.location.href = `save.html?id_1=`+id_1+`&id_2=`+id_2+`&n1=`+n1+`&n2=`+n2+`&time=`+t.innerHTML;
+ window.location.href = `save.html?id_1=`+id_1+`&id_2=`+id_2+`&n1=`+n1+`&n2=`+n2+`&mode=`+ mode + `&time=`+t.innerHTML;
 
 });
 const colors = [
