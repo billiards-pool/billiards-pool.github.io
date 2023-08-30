@@ -21,46 +21,46 @@ const firebaseConfig = {
 
         function DisplayCurrent_hearts_1(currentNumber) {
           if (currentNumber == 3) {
-            hearts_1.textContent = "❤ ❤ ❤";
+            hearts_1.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>`;
           } else if (currentNumber == 2) {
-            hearts_1.textContent = "❤ ❤";
+            hearts_1.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart">`;
           } else if (currentNumber == 1) {
-            hearts_1.textContent = "❤";
+            hearts_1.innerHTML = `<i class="fas fa-heart">`;
           } else {
-            hearts_1.textContent = "";
+            hearts_1.innerHTML = "";
           }
         }
         function DisplayCurrent_hearts_2(currentNumber) {
           if (currentNumber == 3) {
-            hearts_2.textContent = "❤ ❤ ❤";
+            hearts_2.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>`;
           } else if (currentNumber == 2) {
-            hearts_2.textContent = "❤ ❤";
+            hearts_2.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart">`;
           } else if (currentNumber == 1) {
-            hearts_2.textContent = "❤";
+            hearts_2.innerHTML = `<i class="fas fa-heart">`;
           } else {
-            hearts_2.textContent = "";
+            hearts_2.innerHTML = "";
           }
         }
         function DisplayCurrent_hearts_3(currentNumber) {
           if (currentNumber == 3) {
-            hearts_3.textContent = "❤ ❤ ❤";
+            hearts_3.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>`;
           } else if (currentNumber == 2) {
-            hearts_3.textContent = "❤ ❤";
+            hearts_3.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart">`;
           } else if (currentNumber == 1) {
-            hearts_3.textContent = "❤";
+            hearts_3.innerHTML = `<i class="fas fa-heart">`;
           } else {
-            hearts_3.textContent = "";
+            hearts_3.innerHTML = "";
           }
         }
         function DisplayCurrent_hearts_4(currentNumber) {
           if (currentNumber == 3) {
-            hearts_4.textContent = "❤ ❤ ❤";
+            hearts_4.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart"></i><i class="fas fa-heart"></i>`;
           } else if (currentNumber == 2) {
-            hearts_4.textContent = "❤ ❤";
+            hearts_4.innerHTML = `<i class="fas fa-heart"></i><i class="fas fa-heart">`;
           } else if (currentNumber == 1) {
-            hearts_4.textContent = "❤";
+            hearts_4.innerHTML = `<i class="fas fa-heart">`;
           } else {
-            hearts_4.textContent = "";
+            hearts_4.innerHTML = "";
           }
         }
 
