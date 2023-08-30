@@ -367,6 +367,8 @@ document.addEventListener("DOMContentLoaded", function () {
             window.location.href = `index-1v1mmr.html?id=${id}`;
         } else if (selectedOption === "2v2") {
             window.location.href = `index-2v2.html?id=${id}`;
+        } else if (selectedOption === "3 hearts") {
+            window.location.href = `index-3hearts.html?id=${id}`;
         }
     });
 });
