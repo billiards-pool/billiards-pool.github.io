@@ -168,8 +168,8 @@ const colors = [
   "darkslateblue", "dodgerblue", "goldenrod", "greenyellow",
   "indianred", "limegreen", "mediumaquamarine", "mediumvioletred",
   "mistyrose", "oldlace", "orangered", "papayawhip", "powderblue",
-  "rebeccapurple", "saddlebrown", "seashell", "slategray",
-  "springgreen", "tan", "turquoise", "violetred", "whitesmoke"
+ "saddlebrown", "seashell", "slategray",
+  "springgreen", "tan", "turquoise", "whitesmoke"
 ];
 
 let availableColors = [...colors]; // Створюємо копію списку кольорів
@@ -205,6 +205,102 @@ document.getElementById("hearts_2").style.color = `${Color2}`;
 document.getElementById("hearts_3").style.color = `${Color3}`;
 document.getElementById("hearts_4").style.color = `${Color4}`;
 
+document.documentElement.style.setProperty('--mmr1Color', Color1);
+document.documentElement.style.setProperty('--mmr2Color', Color2);
+document.documentElement.style.setProperty('--mmr3Color', Color3);
+document.documentElement.style.setProperty('--mmr4Color', Color4);
+
+const photo_1 = document.getElementById("photo_1");
+const photo_2 = document.getElementById("photo_2");
+const photo_3 = document.getElementById("photo_3");
+const photo_4 = document.getElementById("photo_4");
+
+function toggleFirePulseAnimation1() {
+  const hearts_1Ref = ref(db, "hearts/hearts1");
+        onValue(hearts_1Ref, (snapshot) => {
+            const currentNumber = snapshot.val();
+    if (currentNumber == 1) { 
+      photo_1.classList.add("fire-pulse-animation1"); 
+      photo_1.style.filter = 'none';
+      document.getElementById("username_1").style.color = '#fff';
+    } else if (currentNumber == 0) {
+      photo_1.classList.remove("fire-pulse-animation1"); 
+      photo_1.style.filter = 'grayscale(100%)';
+      document.getElementById("username_1").style.color = 'gray';
+    }  else {
+      photo_1.classList.remove("fire-pulse-animation1");
+      photo_1.style.filter = 'none';
+      document.getElementById("username_1").style.color = '#fff';
+    }  
+  });
+}
+
+function toggleFirePulseAnimation2() {
+  const hearts_2Ref = ref(db, "hearts/hearts2");
+        onValue(hearts_2Ref, (snapshot) => {
+            const currentNumber = snapshot.val();
+    if (currentNumber == 1) { 
+      photo_2.classList.add("fire-pulse-animation2"); 
+      photo_2.style.filter = 'none';
+      document.getElementById("username_2").style.color = '#fff';
+    } else if (currentNumber == 0) {
+      photo_2.classList.remove("fire-pulse-animation2"); 
+      photo_2.style.filter = 'grayscale(100%)';
+      document.getElementById("username_2").style.color = 'gray';
+    }  else {
+      photo_2.classList.remove("fire-pulse-animation2");
+      photo_2.style.filter = 'none';
+      document.getElementById("username_2").style.color = '#fff';
+    }  
+  });
+}
+
+function toggleFirePulseAnimation3() {
+  const hearts_3Ref = ref(db, "hearts/hearts3");
+        onValue(hearts_3Ref, (snapshot) => {
+            const currentNumber = snapshot.val();
+    if (currentNumber == 1) { 
+      photo_3.classList.add("fire-pulse-animation3"); 
+      photo_3.style.filter = 'none';
+      document.getElementById("username_3").style.color = '#fff';
+    } else if (currentNumber == 0) {
+      photo_3.classList.remove("fire-pulse-animation3"); 
+      photo_3.style.filter = 'grayscale(100%)';
+      document.getElementById("username_3").style.color = 'gray';
+    }  else {
+      photo_3.classList.remove("fire-pulse-animation3");
+      photo_3.style.filter = 'none';
+      document.getElementById("username_3").style.color = '#fff';
+    }  
+  });
+}
+
+function toggleFirePulseAnimation4() {
+  const hearts_4Ref = ref(db, "hearts/hearts4");
+        onValue(hearts_4Ref, (snapshot) => {
+            const currentNumber = snapshot.val();
+    if (currentNumber == 1) { 
+      photo_4.classList.add("fire-pulse-animation4"); 
+      photo_4.style.filter = 'none';
+      document.getElementById("username_4").style.color = '#fff';
+    } else if (currentNumber == 0) {
+      photo_4.classList.remove("fire-pulse-animation4"); 
+      photo_4.style.filter = 'grayscale(100%)';
+      document.getElementById("username_4").style.color = 'gray';
+    }  else {
+      photo_4.classList.remove("fire-pulse-animation4");
+      photo_4.style.filter = 'none';
+      document.getElementById("username_4").style.color = '#fff';
+    }  
+  });
+}
+
+
+  toggleFirePulseAnimation1();
+  toggleFirePulseAnimation2();
+  toggleFirePulseAnimation3();
+  toggleFirePulseAnimation4();
+ 
 
 
 const player1ColorRef = ref(db, "player1/color");
@@ -223,4 +319,5 @@ const player4ColorRef = ref(db, "player4/color");
     runTransaction(player4ColorRef, (currentData) => {
         return currentData = Color4; 
     });
+
 
