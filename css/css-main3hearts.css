@@ -1,0 +1,152 @@
+   @import url('https://fonts.googleapis.com/css?family=Quicksand:300');
+body {
+    background: linear-gradient(to bottom, #333333, #444444); /* Змінено кольори градієнта */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    font-family: 'Quicksand', sans-serif;
+    color: #fff;
+}
+button {
+    font-size: 36px; /* Збільшено розмір шрифту */
+    background-color: #444;
+    color: #fff;
+    border: 2px solid #555;
+    border-radius: 10px; /* Збільшено радіус закругленості */
+    padding: 14px 24px; /* Збільшено внутрішні відступи */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+button:hover {
+    background-color: #555;
+}
+img {
+    width: 320px; /* Змінено максимальну ширину фото */
+    height: 320px; /* Залишено максимальну висоту фото */
+}
+ 
+      .main {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .block {
+      flex: 9;
+      display: flex;
+      width: 100%;
+    }
+
+    .container {
+      flex: 1;
+      height: 90%;
+      width: 25%;
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    .nickname_1, .nickname_2, .nickname_3, .nickname_4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 10%;
+    }
+    .photo_1, .photo_2, .photo_3, .photo_4 {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 50%;
+    }
+        .hearts {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 40%;
+      font-size: 100px;
+
+      color: #333333;
+      text-shadow: 0 0 40px #333333; 
+    }
+
+
+#username_1, #username_2 {
+    font-size: 56px; 
+    text-shadow: 0 0 20px blue; 
+ }
+ #username_3, #username_4 {
+    font-size: 56px; 
+    text-shadow: 0 0 20px red; 
+ }
+ #time {
+    font-size: 92px; 
+    text-shadow: 0 0 20px lightgray; 
+ }
+
+
+/* @keyframes firePulse1 {
+  0%, 100% {
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr1Color), 0 0 20px var(--mmr1Color);
+  }
+  50% {
+    box-shadow: 0 0 30px white, 0 0 50px var(--mmr1Color), 0 0 150px var(--mmr1Color);
+  }
+}
+
+.fire-pulse-animation1 {
+  animation: firePulse1 1.5s infinite;
+}
+
+@keyframes firePulse2 {
+  0%, 100% {
+    box-shadow: 0 0 5px white, 0 0 10px var(--mmr2Color), 0 0 20px var(--mmr2Color);
+  }
+  
+  50% {
+    box-shadow: 0 0 10px white, 0 0 50px var(--mmr2Color), 0 0 100px var(--mmr2Color);
+  }
+}
+
+.fire-pulse-animation2 {
+  animation: firePulse2 1.5s infinite;
+}
+
+@keyframes firePulse1-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-1 { animation: firePulse1-1 2s; }
+@keyframes firePulse1-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-2 { animation: firePulse1-2 2s; }
+@keyframes firePulse1-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-3 { animation: firePulse1-3 2s; }
+@keyframes firePulse1-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-4 { animation: firePulse1-4 2s; }
+@keyframes firePulse1-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-5 { animation: firePulse1-5 2s; }
+@keyframes firePulse1-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr1Color), 0 0 700px var(--mmr1Color); } }
+.fire-pulse-animation1-6 { animation: firePulse1-6 2s; }
+
+
+@keyframes firePulse2-1 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-1 { animation: firePulse2-1 2s; }
+@keyframes firePulse2-2 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-2 { animation: firePulse2-2 2s; }
+@keyframes firePulse2-3 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-3 { animation: firePulse2-3 2s; }
+@keyframes firePulse2-4 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-4 { animation: firePulse2-4 2s; }
+@keyframes firePulse2-5 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-5 { animation: firePulse2-5 2s; }
+@keyframes firePulse2-6 { 50% { box-shadow: 0 0 30px white, 0 0 150px var(--mmr2Color), 0 0 700px var(--mmr2Color); } }
+.fire-pulse-animation2-6 { animation: firePulse2-6 2s; }
+*/
